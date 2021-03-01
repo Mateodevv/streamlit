@@ -1,0 +1,6 @@
+streamlit~=0.77.0
+altair~=4.1.0
+pandas~=1.2.2
+requests~=2.25.1
+bs4~=0.0.1
+beautifulsoup4~=4.9.3
