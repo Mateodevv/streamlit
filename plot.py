@@ -44,11 +44,15 @@ line_chart = alt.Chart(line_chart_df).mark_line().encode(
     titleFontSize=15
 )
 
+
 # Elements filling the sidebar
 st.sidebar.subheader("DISCLAIMER")
 st.sidebar.text(
     "Das ist ein Prototyp zum Thema\n'Trendanalyse durch Web crawling'.\nEs gibt keine Garantie auf"
     " \nRichtigkeit der Daten.")
+
+expander = st.sidebar.beta_expander("Date from last changes")
+expander.write("01.03.2021")
 
 with col1:
     st.subheader("Offene Stellen in Kategorien sortiert")
