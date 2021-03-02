@@ -53,7 +53,7 @@ st.sidebar.text(
 with col1:
     st.subheader("Offene Stellen in Kategorien sortiert")
     st.altair_chart(bar_chart, use_container_width=True)
-    st.subheader("Offene Stellen über Zeit")
+    st.subheader("Anzahl neu veröffentlichter Stellen über Zeit")
     st.altair_chart(line_chart, use_container_width=True)
 
 with col2:
