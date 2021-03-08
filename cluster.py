@@ -2,6 +2,7 @@ import re
 import pandas as pd
 
 
+# Wrapper method. Builds a DataFrame with data provided from label_titles().
 def get_clustered_job_titles(df):
     admin, consultant, datajobs, entwicklung, fachlich, leitung, security, sonstige = label_titles(df)
 
@@ -30,6 +31,7 @@ def get_jobamount_over_time(df):
 def get_jobtitles_over_time(df):
     columns = ["job_title", "date", "amount"]
     data = pd.DataFrame(columns=columns)
+    # selects all the unique dates from the DataFrame. Used for easy iterating.
     uniquedates = df.date.unique()
     for udate in uniquedates:
         tmpdf = df.loc[df['date'] == udate]
@@ -59,7 +61,7 @@ def label_titles(df):
     leitung = 0
     fachlich = 0
     sonstige = 0
-    # Checks for specific keywords in the listing title to label it.
+    # Checks for specific keywords in the listing title to label it and counts the sum.
     for index, row in df.iterrows():
         job_title = str(row["job_title"]).lower()
         if re.search("leiter", job_title):
