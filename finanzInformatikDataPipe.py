@@ -34,7 +34,6 @@ def find_job_offers():
         month = fulldate[3:5]
         year = fulldate[6:10]
         dates.append(year + "-" + month)
-
         # Modifies global variable df
         global df
         df = pd.DataFrame(zip(job_titles, dates), columns=["job_title", "date"])
