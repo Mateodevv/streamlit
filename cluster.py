@@ -24,6 +24,7 @@ def get_jobamount_over_time(df):
         tmp = df.loc[df['date'] == udate]
         amount.append(len(tmp.index))
         date.append(udate)
+
     return pd.DataFrame({'Anzahl Ausschreibungen': amount, 'Datum': date})
 
 
@@ -63,7 +64,7 @@ def label_titles(df):
     # Checks for specific keywords in the listing title to label it and counts the sum.
     for index, row in df.iterrows():
         job_title = str(row["job_title"]).lower()
-        if re.search("leiter", job_title) or re.search("lead", job_title):
+        if re.search("leiter", job_title):
             leitung += 1
         elif re.search("data", job_title):
             datajobs += 1
@@ -77,11 +78,8 @@ def label_titles(df):
             security += 1
         elif re.search("consultant", job_title) or re.search("berater", job_title):
             consultant += 1
-        elif re.search("produktverant", job_title) or re.search("product", job_title) or re.search("manager",
-                                                                                                   job_title) or re.search(
-            "fachlich",
-            job_title) or re.search("business", job_title) or re.search("management", job_title) or re.search("produkt",
-                                                                                                              job_title):
+        elif re.search("produktverant", job_title) or re.search("manager", job_title) or re.search("fachlich",
+                                                                                                   job_title):
             fachlich += 1
 
         else:
